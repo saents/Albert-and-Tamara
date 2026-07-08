@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hy" class="bg-background">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#3a322c" />
+    <meta
+      name="description"
+      content="Ալբերտը և Թամարան հրավիրում են ձեզ տոնելու իրենց հարսանիքը։"
+    />
+    <title>Ալբերտ և Թամարա — Հարսանեկան հրավեր</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="is-loading">
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ============ SCENE 1 — Loader ============ -->
+    <div id="loader">
+      <div class="loader-inner">
+        <div class="loader-monogram" id="loader-monogram">AT</div>
+        <div class="loader-names" id="loader-names">Ալբերտ և Թամարա</div>
+        <div class="loader-line"></div>
+        <div class="loader-tagline" id="loader-tagline">Սիրո պատմություն</div>
+      </div>
+    </div>
+
+    <main>
+      <!-- ============ SCENE 2 — Hero ============ -->
+      <section id="hero">
+        <div class="hero-bg" data-parallax="0.35"></div>
+        <div class="hero-glow" data-parallax="0.18"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-rays" data-parallax="0.5"></div>
+        <div class="particles"></div>
+        <div class="hero-vignette"></div>
+
+        <div class="hero-content" data-parallax="-0.22" data-parallax-fade="true">
+          <span class="hero-kicker" id="hero-kicker"></span>
+          <h1 class="hero-names">
+            <span class="name" id="hero-groom"></span>
+            <span class="amp" id="hero-amp"></span>
+            <span class="name" id="hero-bride"></span>
+          </h1>
+          <p class="hero-date" id="hero-date"></p>
+          <div class="hero-divider" id="hero-divider"></div>
+          <p class="hero-subtitle" id="hero-subtitle"></p>
+          <p class="hero-message" id="hero-message"></p>
+        </div>
+
+        <div class="scroll-hint">
+          <span id="hero-scroll-text"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 3 — Wedding Details ============ -->
+      <section id="event" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="section-label" id="event-label"></p>
+            <h2 class="section-title" id="event-title"></h2>
+          </div>
+          <div class="event-grid" id="event-grid"></div>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 5 — Countdown ============ -->
+      <section id="countdown" class="section">
+        <div class="particles"></div>
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="section-label" id="countdown-label"></p>
+            <h2 class="section-title" id="countdown-title"></h2>
+          </div>
+          <div class="count-grid" id="count-grid"></div>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 6 — Memories & Wishes ============ -->
+      <section id="memories" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="section-label" id="memories-label"></p>
+            <h2 class="section-title" id="memories-title"></h2>
+          </div>
+          <div id="memories-list"></div>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 7 — Gallery ============ -->
+      <section id="gallery" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="section-label" id="gallery-label"></p>
+            <h2 class="section-title" id="gallery-title"></h2>
+          </div>
+          <div class="masonry" id="gallery-grid"></div>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 8 — Closing ============ -->
+      <section id="closing">
+        <div class="closing-bg" data-parallax="0.3"></div>
+        <div class="closing-overlay"></div>
+        <div class="particles"></div>
+        <div class="closing-content" data-parallax="-0.15">
+          <p class="closing-message" id="closing-message"></p>
+          <div class="closing-divider"></div>
+          <p class="closing-signature" id="closing-signature"></p>
+          <p class="closing-names" id="closing-names"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="mono" id="footer-mono"></div>
+      <div id="footer-text"></div>
+    </footer>
+
+    <!-- Presentation auto-scroll -->
+    <button
+      type="button"
+      class="presentation-btn"
+      id="presentation-btn"
+      aria-pressed="false"
+      aria-label="Սկսել ցուցադրության ռեժիմը"
+    >
+      <span class="presentation-btn-icon" aria-hidden="true">
+        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" />
+        </svg>
+      </span>
+      <span class="presentation-btn-label">Ցուցադրել</span>
+    </button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Նկարադիտում">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Փակել">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Նախորդ նկար">&#8249;</button>
+      <img id="lightbox-img" src="/placeholder.svg" alt="" />
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Հաջորդ նկար">&#8250;</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
