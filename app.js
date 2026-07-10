@@ -46,6 +46,7 @@ async function boot() {
   setupTilt();
   setupLightbox(uiStrings);
   setupAutoScroll(uiStrings);
+  setupBackgroundMusic(uiStrings);
 
   runLoaderSequence();
 }
@@ -234,7 +235,11 @@ function renderEvent(d) {
       <div class="row"><span class="lbl">${labels.date || ""}</span><span class="val">${c.date}</span></div>
       <div class="row"><span class="lbl">${labels.time || ""}</span><span class="val">${c.time}</span></div>
       <div class="row"><span class="lbl">${labels.venue || ""}</span><span class="val">${c.venue}</span></div>
-      <div class="row"><span class="lbl">${labels.address || ""}</span><span class="val sm">${c.address}</span></div>
+      <div class="row"><span class="lbl">${labels.address || ""}</span><span class="val sm">${
+        c.mapUrl
+          ? `<a class="address-link" href="${c.mapUrl}" target="_blank" rel="noopener noreferrer">📍 ${c.address}</a>`
+          : `📍 ${c.address}`
+      }</span></div>
     </div>`
     )
     .join("");
@@ -308,13 +313,13 @@ function renderMemories(d) {
         (m, i) => {
           const fromLeft = i % 2 === 0;
           return `
-    <div class="memory reveal">
-      <div class="memory-media clip-reveal"><img class="parallax-img" src="${m.image}" alt="${d.memoryAlt || ""}" loading="lazy" /></div>
-      <blockquote class="memory-body ${fromLeft ? "reveal-right" : "reveal-left"}">
-        <p class="memory-quote">&ldquo;${m.quote}&rdquo;</p>
-        <cite class="memory-author">${m.author}</cite>
-      </blockquote>
-    </div>`;
+            <div class="memory reveal">
+              <div class="memory-media clip-reveal"><img class="parallax-img" src="${m.image}" alt="${d.memoryAlt || ""}" loading="lazy" /></div>
+              <blockquote class="memory-body ${fromLeft ? "reveal-right" : "reveal-left"}">
+                <p class="memory-quote">&ldquo;${m.quote}&rdquo;</p>
+                <cite class="memory-author">${m.author}</cite>
+              </blockquote>
+            </div>`;
         }
       )
       .join("") + `<p class="memory-wish reveal-scale">${d.wish}</p>`;
@@ -393,6 +398,37 @@ function renderClosing(d) {
 function renderFooter(meta) {
   $("#footer-mono").textContent = meta.monogram;
   $("#footer-text").textContent = meta.title;
+}
+
+/* ---------- Background music ---------- */
+function setupBackgroundMusic(ui = {}) {
+  const audio = $("#bg-music");
+  const btn = $("#music-btn");
+  if (!audio || !btn) return;
+
+  let muted = false;
+
+  function syncUI() {
+    btn.classList.toggle("is-muted", muted);
+    btn.setAttribute("aria-pressed", String(muted));
+    btn.setAttribute("aria-label", muted ? ui.unmuteMusic || "Unmute music" : ui.muteMusic || "Mute music");
+    audio.muted = muted;
+  }
+
+  function tryPlay() {
+    if (!muted) audio.play().catch(() => {});
+  }
+
+  btn.addEventListener("click", () => {
+    muted = !muted;
+    syncUI();
+    if (!muted) tryPlay();
+  });
+
+  syncUI();
+
+  document.addEventListener("pointerdown", tryPlay, { once: true });
+  setTimeout(tryPlay, prefersReduced ? 500 : 4300);
 }
 
 /* ---------- Presentation auto-scroll ---------- */

@@ -120,6 +120,25 @@
       <div id="footer-text"></div>
     </footer>
 
+    <!-- Background music -->
+    <audio id="bg-music" loop preload="auto">
+      <source src="/sounds/music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Music mute toggle -->
+    <button
+      type="button"
+      class="music-btn"
+      id="music-btn"
+      aria-pressed="false"
+      aria-label="Խլացնել երաժշտությունը"
+    >
+      <span class="music-btn-icon" aria-hidden="true">
+        <img class="icon-on" src="/images/volume-on.png" alt="" width="16" height="16" />
+        <img class="icon-off" src="/images/volume-off.png" alt="" width="16" height="16" />
+      </span>
+    </button>
+
     <!-- Presentation auto-scroll -->
     <button
       type="button"
