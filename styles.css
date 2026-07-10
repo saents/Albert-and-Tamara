@@ -265,7 +265,7 @@ img {
 }
 
 .hero-bg {
-  background-image: url("/images/hero.png");
+  background-image: url("images/hero.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -713,7 +713,7 @@ img {
 .closing-bg {
   position: absolute;
   inset: 0;
-  background-image: url("/images/closing.png");
+  background-image: url("images/closing.png");
   background-size: cover;
   background-position: center;
   opacity: 0.55;

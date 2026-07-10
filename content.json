@@ -65,7 +65,7 @@
     "memoryAlt": "Սիրելի հուշ",
     "items": [
       {
-        "image": "/images/couple.jpg",
+        "image": "images/couple.jpg",
         "quote": "Սիրել՝ նշանակում է գիտակցել հավերժությունը:",
         "author": "Կրիշնամուրտի"
       }
@@ -76,9 +76,9 @@
     "label": "Նկարասրահ",
     "title": "Մեր պատմության գեղեցիկ ակնթարթները",
     "images": [
-      { "src": "/images/gallery-1.jpg", "alt": "Էլեգանտ զույգի դիմանկար" },
-      { "src": "/images/gallery-2.jpg", "alt": "Հարսանեկան մատանիներ" },
-      { "src": "/images/gallery-3.jpg", "alt": "Պարող զույգը" }
+      { "src": "images/gallery-1.jpg", "alt": "Էլեգանտ զույգի դիմանկար" },
+      { "src": "images/gallery-2.jpg", "alt": "Հարսանեկան մատանիներ" },
+      { "src": "images/gallery-3.jpg", "alt": "Պարող զույգը" }
     ]
   },
   "closing": {
